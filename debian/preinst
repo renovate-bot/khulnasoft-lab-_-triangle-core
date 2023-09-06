@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    install)
+    echo "# This file is empty, feel free to
+# add here your custom APT repositories
+
+
+#############
+#  WARNING  #
+#############
+
+# ADDING EXTERNAL REPOSITORIES MAY HARM YOUR SYSTEM,
+# MAY INTRODUCE MALWARE, CAUSE INSTABILITY OR
+# CAUSE PERMANENT DATA LOSS
+#    DO IT WISELY
+
+# The default Triangle repositories
+# are NOT here. If you want to
+# edit them, take a look into
+#    /etc/apt/sources.list.d/triangle.list
+
+# if the default servers are too slow
+# open /etc/apt/sources.list.d/triangle.list
+# and follow the instructions to choose faster servers
+# or read https://www.khulnasoft.com/docs/mirrors-list.html for more info
+" > /etc/apt/sources.list
+        ;;
+esac
