@@ -1,0 +1,298 @@
+Source: triangle-core
+Section: triangle
+Priority: optional
+Maintainer: Triangle Dev Team <team@khulnasoft.com>
+Uploaders: Md Sulaiman <admin@khulnasoft.com>
+Standards-Version: 4.2.0
+Build-Depends: debhelper (>= 11), dconf-cli
+Homepage: https://www.khulnasoft.com/
+
+Package: triangle-core
+Architecture: any
+Depends: bash-completion,
+  dnsutils,
+  htop,
+  nload,
+  moreutils,
+  nano,
+  net-tools,
+  whois,
+  curl,
+  wget,
+  dconf-cli,
+  rsync,
+Recommends: apparmor,
+  apparmor-profiles,
+  apparmor-profiles-extra,
+  apparmor-utils,
+  triangle-hardened,
+  screen,
+  sysv-rc,
+  locate,
+  neovim,
+  figlet,
+  plymouth,
+  plymouth-themes,
+  triangle-core-lite [armhf arm64 i386]
+Suggests: triangle-drivers, triangle-core-lite [amd64]
+Replaces: bash, base-files, xterm, triangle-skel, dnsmasq, triangle-interface-common, apt-triangle, vim, nano, powershell, fish, nvim
+Breaks: apt-triangle, triangle-skel
+Conflicts: apt-triangle, triangle-skel
+Description: Core package for Triangle OS
+  Core package for the Triangle Debian distribution.
+  .
+  This package provides essential configuration files and base dependencies for
+  the Triangle Security operating system and its flavors.
+
+Package: triangle-core-lite
+Architecture: all
+Depends: triangle-core
+Description: Lightweight MATE settings for Triangle Core
+  Core package for the Triangle Debian distribution.
+  .
+  This package provides additional configuration for
+  low power and memory constrained systemd.
+
+
+Package: triangle-drivers
+Architecture: all
+Depends: firmware-linux-free, firmware-linux
+Recommends: alsa-firmware-loaders,
+            b43-fwcutter,
+            bluez-firmware,
+            bcmwl-kernel-sources,
+            broadcom-sta-dkms,
+            btrfs-tools, 
+            dosfstools,
+            e2fsprogs,
+            exfat-fuse,
+            exfat-utils,
+            firmware-adi,
+            firmware-atheros,
+            firmware-b43-installer,
+            firmware-b43legacy-installer,
+            firmware-b43-lpphy-installer,
+            firmware-bnx2, firmware-bnx2x,
+            firmware-brcm80211,
+            firmware-intelwimax,
+            firmware-iwlwifi,
+            firmware-libertas,
+            firmware-linux,
+            firmware-linux-free,
+            firmware-linux-nonfree,
+            firmware-misc-nonfree,
+            firmware-myricom,
+            firmware-netxen,
+            firmware-nexten,
+            firmware-qlogic,
+            firmware-ralink,
+            firmware-realtek,
+            firmware-ti-connectivity,
+            r8168-dkms,
+            realtek-rtl88xxau-dkms,
+            realtek-rtl8814au-dkms,
+            realtek-rtl8188eus-dkms,
+            gobi-loader,
+            hfsprogs,
+            hfsutils,
+            jfsutils,
+            libertas-firmware,
+            linux-wlan-ng-firmware,
+            mtools,
+            prism2-usb-firmware-installer,
+            reiser4progs,
+            reiserfsprogs,
+            wmaloader,
+            xfsdump,
+            xfsprogs,
+            zd1211-firmware
+Suggests: firmware-ipw2x00
+Priority: optional
+Description: Triangle drivers metapackage.
+  This metapackage installs all the free and non-free drivers to make Triangle OS
+  run on as many hardware combinations as possible.
+
+
+Package: triangle-apps-basics
+Architecture: all
+Replaces: bash, base-files, xterm, triangle-skel, dnsmasq, triangle-interface-common, apt-triangle
+Breaks: apt-triangle, triangle-skel
+Conflicts: apt-triangle, triangle-skel
+Depends: bash-completion,
+  bind9-dnsutils,
+  htop,
+  nload,
+  nano,
+  net-tools,
+  whois,
+  curl,
+  wget,
+  rsync,
+Recommends: apparmor,
+  apparmor-profiles,
+  apparmor-profiles-extra,
+  apparmor-utils,
+  triangle-hardened,
+  neovim,
+  figlet,
+  triangle-core-lite [armhf arm64 i386]
+Suggest: moreutils,
+  dconf-cli,
+  screen,
+  sysv-rc,
+  locate,
+  plymouth,
+  plymouth-themes
+Description: Basic applications for headless
+  Install basic apps and configurations
+
+
+Package: triangle-desktop-xfce
+Architecture: all
+Depends:
+  xfce4,
+  xfce4-terminal,
+  xfce4-screenshooter,
+  xfce4-whiskermenu-plugin,
+  xfce4-places-plugin,
+  xfce4-screensaver,
+  xfce4-taskmanager,
+  xfce4-systemload-plugin,
+  xfce4-power-manager-plugins,
+  mousepad,
+  ristretto,
+  thunar,
+  network-manager-gnome,
+  triangle-displaymanager
+Recommends: network-manager-openvpn-gnome,
+  gtk2-engines-murrine,
+  thunar-archive-plugin,
+  engrampa,
+  fonts-cantarell,
+  mugshot,
+  menulibre,
+  atril
+Suggest: triangle-interface-common,
+  network-manager-fortisslvpn-gnome,
+  network-manager-l2tp-gnome,
+  network-manager-openconnect-gnome,
+  network-manager-pptp-gnome,
+  network-manager-vpnc-gnome,
+  network-manager-ssh-gnome,
+
+
+Package: triangle-desktop-gnome
+Architecture: all
+Depends: triangle-interface-common,
+  gnome-core,
+  gedit,
+  gnome-brave-icon-theme,
+  gnome-shell-extensions,
+  gnome-shell-extension-proxyswitcher,
+  gnome-shell-extension-dashtodock,
+  gnome-shell-extension-easyscreencast,
+  gnome-tweak-tool,
+  nautilus-wipe,
+  nautilus-gtkhash,
+  gnome-orca,
+  file-roller,
+  gnome-calculator
+Recommends: gdm3
+Description: GNOME based Triangle desktop
+  This metapackage installs a minimalistic GNOME desktop on Triangle Security OS.
+
+
+Package: triangle-desktop-kde
+Architecture: all
+Depends: triangle-interface-common,
+  kde-standard,
+  kde-plasma-desktop,
+  kde-spectacle,
+  plasma-nm,
+  triangle-displaymanager
+Suggests: lightdm-triangle
+Description: KDE based Triangle desktop
+  This metapackage installs a minimalistic KDE desktop on Triangle Security OS.
+
+
+Package: triangle-desktop-mate
+Architecture: all
+Depends: mate-core, triangle-interface-common, triangle-displaymanager
+Recommends: atril,
+  breeze-cursor-theme,
+  caja,
+  caja-actions,
+  caja-gksu,
+  caja-image-converter,
+  caja-open-terminal,
+  caja-sendto,
+  caja-share,
+  caja-xattr-tags,
+  engrampa,
+  eom,
+  gnome-system-tools,
+  mate-applets,
+  mate-applet-brisk-menu,
+  mate-applet-topmenu,
+  mate-calc,
+  mate-common,
+  mate-control-center,
+  mate-dock-applet,
+  mate-indicator-applet,
+  mate-media,
+  mate-menu,
+  mate-netspeed,
+  mate-notification-daemon,
+  mate-polkit-bin,
+  mate-power-manager,
+  mate-screensaver,
+  mate-sensors-applet,
+  mate-sensors-applet-nvidia,
+  mate-system-monitor,
+  mate-system-tools,
+  mate-tweak,
+  gtk3-engines-breeze,
+  mate-utils,
+  mozo,
+  network-manager-gnome,
+  network-manager-openvpn,
+  pluma
+Suggests: triangle-interface-full,
+  caja-gtkhash,
+  network-manager-fortisslvpn-gnome,
+  network-manager-l2tp-gnome,
+  network-manager-openconnect-gnome,
+  network-manager-pptp-gnome,
+  network-manager-vpnc-gnome,
+  network-manager-openvpn-gnome,
+  network-manager-ssh-gnome,
+Description: Triangle interface metapackage
+  metapackage that installs the graphic interface.
+
+
+Package: triangle-desktop-i3
+Architecture: all
+Depends: i3,
+  feh,
+  polybar,
+  fonts-cantarell,
+  fonts-font-awesome
+Description: Meta package for i3 Window Manager
+  This package is metapackage for i3 Window Manager
+  on Triangle OS. It installs polybar, feh, font
+  cantarell, font Awesome5 to user's system.
+
+
+Package: triangle-configs-zsh
+Architecture: all
+Depends: zsh
+Recommends: zsh-autocomplete, zsh-syntax-highlighting, zsh-autosuggestions
+Replaces: zsh
+Section: shells
+Priority: optional
+Homepage: https://www.khulnasoft.com
+Description: Triangle ZSH configuration
+  This is Triangle Security,
+  a security focused GNU/Linux distribution.
+  .
+  This metapackage provides the plugins and settings for ZSH shell on Triangle.
